@@ -225,6 +225,7 @@ public class MainActivity extends AppCompatActivity {
      * Function to raise an object perpendicular to the ArPlane a specific distance
      * @param an anchor belonging to the object that should be raised
      * @param up distance in centimeters the object should be raised vertically
+     *           test
      */
     private void ascend(AnchorNode an, float up) {
         Anchor anchor = myhit.getTrackable().createAnchor(
