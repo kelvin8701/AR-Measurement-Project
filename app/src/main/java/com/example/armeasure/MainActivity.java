@@ -64,7 +64,18 @@ public class MainActivity extends AppCompatActivity {
 
     private String message;
 
+//battery
+    private TextView battery;
+    private BroadcastReceiver nBatInfoReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
 
+
+            int level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL,0);
+            battery.setText(String.valueOf(level)+"%");
+
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +91,10 @@ public class MainActivity extends AppCompatActivity {
         catch (NullPointerException e){}
 
         setContentView(R.layout.activity_main);
+
+        //      battery
+        battery = (TextView) this.findViewById(R.id.text1);
+        this.registerReceiver(this.nBatInfoReceiver,new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
 
 
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ux_fragment);
