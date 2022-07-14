@@ -90,7 +90,8 @@
             android:textSize="20dp"
             />
     </LinearLayout>
-<TextView
+<!--battery percentage-->
+    <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
